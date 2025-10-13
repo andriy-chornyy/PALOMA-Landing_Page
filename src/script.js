@@ -5,7 +5,6 @@ import instagramImage from './images/instagram.png';
 import viberImage from './images/viber.png';
 import closeImage from './images/close.png';
 
-
 import BS0 from './images/main1.jpg';
 import BS1 from './images/BS-1.jpg';
 import BS2 from './images/BS-2.jpg';
@@ -123,11 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(changeImageVisibility, 3000);
 });
 
-// coment функція яка відправляє данні форми
 document.getElementById('myForm').addEventListener('submit', async function(event) {
-  event.preventDefault(); // Зупинити стандартну подію подання форми
+  event.preventDefault();
 
-  // Отримати дані з форми
   const name = document.getElementById('name').value;
   const message = document.getElementById('message').value;
   const phone = document.getElementById('phone').value;
@@ -137,7 +134,6 @@ document.getElementById('myForm').addEventListener('submit', async function(even
   sendButtonWrapper.style.cursor = 'wait';
   sendButton.style.pointerEvents = 'none';
   try {
-    // Виконати POST-запит на сервер і передати дані
     const response = await fetch('https://send-data-to-telegram.onrender.com/submit-form', {
       method: 'POST',
       headers: {
@@ -146,18 +142,15 @@ document.getElementById('myForm').addEventListener('submit', async function(even
       body: JSON.stringify({ name, message, phone }),
     });
 
-    // Перевірити, чи відповідь успішна
     if (!response.ok) {
       throw new Error('Помилка при відправленні даних на сервер');
     }
 
-    // Вивести повідомлення про успіх
     alert('Заявка успішно відправлена! Очікуйте, будь ласка, на відповідь у telegram!');
 
-    // Очистити поля форми
     this.reset();
   } catch (error) {
-    // Вивести повідомлення про помилку у разі неуспішної відправки
+
     console.error('Сталася помилка:', error);
     alert('Виникла помилка при відправленні даних');
   } finally {
@@ -166,7 +159,6 @@ document.getElementById('myForm').addEventListener('submit', async function(even
   }
 });
 
-// кнопка для соц сетей
 let button;
 let buttonImage;
 let socialIcons;
@@ -208,11 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   socialIcons.style.display = 'none';
 
-  // function stopAnimation() {
-  //   clearInterval(animationInterval);
-  //   animationInterval = null;
-  // }
-
   startAnimation();
 
   button.addEventListener('click', function() {
@@ -249,21 +236,17 @@ document.addEventListener('click', function(event) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Получаем все элементы с классом .animate-on-visible
   const animateOnVisibleElements = document.querySelectorAll('.animate-on-visible');
 
-  // Для каждого такого элемента
   animateOnVisibleElements.forEach(function(element) {
-    // Проверяем, если элемент видим в окне просмотра
     if (isElementInViewport(element)) {
-      // Добавляем класс для запуска анимации
+
       setTimeout(function() {
         element.classList.add('visible');
-      }, 500); // Задержка в 0.5 секунды перед запуском анимации
+      }, 500);
     }
   });
 
-  // Добавляем обработчик события прокрутки страницы, чтобы запускать анимацию при прокрутке
   window.addEventListener('scroll', function() {
     animateOnVisibleElements.forEach(function(element) {
       if (isElementInViewport(element)) {
@@ -273,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Функция для проверки, виден ли элемент в окне просмотра
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
 
@@ -284,7 +266,6 @@ function isElementInViewport(el) {
     && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
-
 
 let slideIndex = 0;
 const slides = document.getElementsByClassName('slides');
@@ -308,7 +289,6 @@ function showImage(n) {
   slides[slideIndex].style.display = 'block';
 
   const images = JSON.parse(slides[slideIndex].getAttribute('data-images'));
-  // здесь вам нужно обновить второй слайдер с images
 }
 
 showImage(slideIndex);
@@ -317,33 +297,29 @@ const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 let autoSlideInterval;
 
-// Додаємо обробник події для кліку на кнопку prev
 prevButton.addEventListener('click', function() {
   plusIndex(-1);
   resetAutoSlide();
 });
 
-// Додаємо обробник події для кліку на кнопку next
 nextButton.addEventListener('click', function() {
   plusIndex(1);
   resetAutoSlide();
 });
 
-// Запускаємо автоматичне перелистування кожні 5 секунди
 autoSlideInterval = setInterval(function() {
   plusIndex(1);
 }, 5500);
 
-// Функція для призупинення та знову запуску автоматичного перелистування
+
 function resetAutoSlide() {
-  clearInterval(autoSlideInterval); // Призупиняємо поточне автоперемикання
+  clearInterval(autoSlideInterval);
 
   autoSlideInterval = setInterval(function() {
-    plusIndex(1); // Запускаємо автоперемикання знову
+    plusIndex(1);
   }, 5500);
 }
 
-// Функція plusIndex, яка викликає showImage зі зміненим значенням slideIndex
 function plusIndex(n) {
   showImage(slideIndex += n);
 }
@@ -354,14 +330,9 @@ function startAutoSlide() {
   }, 5500);
 }
 
-// Функція для призупинення автоматичного перелистування
 function pauseAutoSlide() {
   clearInterval(autoSlideInterval);
 }
-
-// pauseAutoSlide();
-
-// SECOND SLIDER
 
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -369,24 +340,14 @@ const links = document.querySelectorAll('.nav-links li');
 let currIndex = 0;
 
 const current = document.querySelector('#current');
-// select all sub images
+
 let imgs = document.querySelectorAll('.sub-imgs img');
 const img_opacity = 0.6;
 
-// set the first image opacity directly
-// imgs[0].style.opacity = img_opacity;
-
-// Using Event delegation to select an image
 document.querySelector('.sub-imgs').addEventListener('click', imgClick);
 
-// // Loop through the nodeList and reach out each image, method 1
-// imgs.forEach(img => img.addEventListener('click', imgClick));
-
 function imgClick(e) {
-  // Reset the opacity of all the images
   imgs.forEach(img => (img.style.opacity = 1));
-
-  // Change current image to source of clicked image
   changeImageTo(e.target);
 }
 
@@ -396,26 +357,19 @@ function changeImageTo(image) {
   if (image.tagName === 'IMG') {
     current.src = image.src;
 
-    // Add fade in class
     current.classList.add('fade-in');
 
-    // Remove fade-in after 0.5 seconds
     setTimeout(() => current.classList.remove('fade-in'), 500);
 
-    // Change the current image opacity
     image.style.opacity = img_opacity;
   }
 }
 
-// Selections
 const leftButton = document.getElementById('left-button');
 const rightButton = document.getElementById('right-button');
 
-// Event listener
 leftButton.addEventListener('click', leftScroll);
 rightButton.addEventListener('click', rightScroll);
-
-// functions
 
 function leftScroll() {
   for (let i = 0; i < imgs.length; i++) {
@@ -446,7 +400,7 @@ function rightScroll() {
 }
 
 const sliderContainer = document.getElementById('slider-container');
-// Масиви зображень для кожної кнопки
+
 const imagesForButtons = {
   button1: [
     BS0,
@@ -573,19 +527,13 @@ function onSecondSliderShow() {
 
 const mainSliderButtons = document.querySelectorAll('#main-slider .slider-button');
 
-// Додаємо обробник кліків до кожної кнопки основного слайдера
 mainSliderButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    // Отримуємо масив зображень для поточної кнопки основного слайдера
     const images = imagesForButtons[`button${index + 1}`];
 
-    // Змінюємо зображення в другому слайдері
     changeImages(images);
-    // Показуємо контейнер другого слайдера
     sliderContainer.style.display = 'block';
     console.log('test');
-    // Прокручуємо до контейнера другого слайдера
-    // sliderContainer.scrollIntoView({ behavior: 'smooth' });
 
     setTimeout(() => {
       sliderContainer.scrollIntoView({ behavior: 'smooth' });
@@ -611,7 +559,6 @@ function changeImages(images) {
     imgElement.setAttribute('style', 'height: 90px');
     subImgsContainer.appendChild(imgElement);
 
-    // Якщо це перше зображення, змінюємо основне зображення
     if (index === 0) {
       mainImg.setAttribute('src', imageSrc);
     }
@@ -626,21 +573,21 @@ function onClickOutsideSecondSlider(event) {
   const readMoreButton = document.getElementById('read-more-button');
 
   if (!sliderContainer.contains(event.target) && event.target !== readMoreButton) {
-    onHideSecondSlider(); // Приховуємо другий слайдер
+    onHideSecondSlider();
   }
 }
 
 function onHideSecondSlider() {
-  document.body.style.overflow = 'auto'; // Відновлюємо можливість прокрутки сторінки
+  document.body.style.overflow = 'auto';
 
   const sections = document.querySelectorAll('section:not(#projects)');
 
   sections.forEach(section => {
-    section.style.filter = 'none'; // Скасовуємо розмите фони
-    section.style.pointerEvents = 'auto'; // Включаємо pointer-events
+    section.style.filter = 'none';
+    section.style.pointerEvents = 'auto';
   });
-  sliderContainer.style.display = 'none'; // Приховуємо другий слайдер
-  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); // Прокручуємо до основного слайдера
+  sliderContainer.style.display = 'none';
+  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   document.removeEventListener('click', onClickOutsideSecondSlider);
   startAutoSlide();
 }

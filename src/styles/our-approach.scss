@@ -8,9 +8,7 @@
     align-items: center;
 
     @include onTablet {
-      // padding-top: 20px;
       padding-bottom: 0;
-      // align-items: flex-end;
     }
   }
 
@@ -31,8 +29,6 @@
 
     @include onTablet {
       display: block;
-
-      // font-size: 18px;
       text-align: justify;
     }
   }

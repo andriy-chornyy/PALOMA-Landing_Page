@@ -140,7 +140,6 @@
     }
   }
 
-  /* Анимация для правого сектора */
   .animate-on-visible.from-right .discount {
     animation: slideRight 2s forwards;
   }
@@ -149,7 +148,6 @@
     animation: slideLeft 2s forwards;
   }
 
-  /* Ключевые кадры анимации */
   @keyframes slideLeft {
     0% {
       transform: translateX(-100%);
@@ -222,7 +220,6 @@
 
   @include onTablet {
     font-size: 14px;
-    // width: 220px;
     color: white;
     display: block;
     text-transform: uppercase;
@@ -235,9 +232,6 @@
   }
 }
 
-/* #endregion header */
-
-/* #region menu */
 .menu {
   position: fixed;
   top: 0;
@@ -278,15 +272,13 @@
   display: flex;
   justify-content: space-between;
 }
-/* #endregion */
 
-/* #region dropbtn */
 .dropdown {
   position: relative;
 }
 
 .dropbtn {
-  background-image: url(/icons/phone-call2.png);
+  background-image: url(../icons/phone-call2.png);
   background-size: cover;
   background-position: center center;
   height: 35px;
@@ -361,9 +353,7 @@
 .dropdown:hover .a-dropdown-content {
   transform: scaleY(1);
 }
-/* #endregion */
 
-/* #region nav__list */
 .nav__link {
   color: white;
   font-size: 20px;
@@ -409,7 +399,4 @@
     gap: 25px;
   }
 }
-/* #endregion */
 
-/* #region ... */
-/* #endregion ...*/

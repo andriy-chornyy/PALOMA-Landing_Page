@@ -48,7 +48,7 @@
 .prices__lside::after {
   content: "";
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7); /* Затемненный цвет: черный с прозрачностью 50% */
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
   left: 0;
   width: 100%;
@@ -169,7 +169,7 @@ ul {
 
 .check, .uncheck {
   position: relative;
-  padding-left: 17px; /* Отступ слева для размещения изображения маркера */
+  padding-left: 17px;
 
   @include onTablet {
     padding-left: 25px;
@@ -180,13 +180,10 @@ ul {
   content: "";
   position: absolute;
   left: 0;
-  // top: 20%; /* Размещаем по вертикали по центру */
-  // transform: translateY(-5%); /* Выравниваем по вертикали по центру */
-  width: 16px; /* Ширина изображения маркера */
-  height: 16px; /* Высота изображения маркера */
-  background-image: url("../Photo/Galochka.svg"); /* Путь к изображению маркера */
-  // background-image: url("./Photo/check.svg");
-  background-size: cover; /* Растягиваем изображение маркера    #C5B3B1*/
+  width: 16px;
+  height: 16px;
+  background-image: url("../Photo/Galochka.svg");
+  background-size: cover;
 
   @include onTablet {
     transform: translateY(-25%);
@@ -209,8 +206,8 @@ ul {
   left: 0;
 
   transform: translateY(10%);
-  width: 15px; /* Ширина изображения маркера */
-  height: 15px; /* Высота изображения маркера */
+  width: 15px;
+  height: 15px;
   background-image: url("../Photo/closeIcon.svg");
   background-size: cover;
 
