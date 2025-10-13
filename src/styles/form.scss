@@ -1,0 +1,149 @@
+.form {
+  display: block;
+}
+
+.form-text {
+  color: white;
+}
+
+.form-info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+
+  @include onTablet {
+    justify-content: start;
+  }
+}
+
+.message-us {
+  .questions-info-box {
+    padding-top: 30px;
+
+    @include onTablet {
+      display: flex;
+      gap: 85px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      max-width: 1170px;
+      gap: 100px;
+    }
+
+    .questions-container {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        width: 45%;
+      }
+
+      @include onDesktop {
+        margin-right: 230px;
+      }
+
+      .here-few {
+        padding-bottom: 40px;
+      }
+
+      .message-form {
+        box-sizing: border-box;
+
+        .message-form-text {
+          color: #fff;
+          padding-bottom: 30px;
+          line-height: 1.1;
+        }
+
+        .textarea {
+          padding: 4px 2px 4px 2px;
+        }
+
+        .form-input {
+          color: white;
+          font-size: 16px;
+          line-height: 150%;
+
+          width: 99%;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+          resize: none;
+          margin-bottom: 25px;
+        }
+
+        .form-input:hover,
+        .form-input:focus,
+        .form-input:active {
+          outline: none;
+          border-bottom: 1px solid rgba(251, 251, 251, 0.763);
+        }
+
+        // .form-input:invalid {
+        //   color: rgba(235, 87, 87, 1);
+        // }
+
+        .button-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 15px;
+        }
+
+        .form-button {
+          text-transform: uppercase;
+          color: rgb(0, 0, 0);
+          border: 1px solid transparent;
+          background-color: #ffffff;
+          cursor: pointer;
+          transition: all 0.5s;
+        }
+
+        .form-button:hover {
+          background-color: rgba(3, 131, 158, 0.5);
+        }
+      }
+    }
+
+    .info-container {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        width: 45%;
+        max-width: 270px;
+      }
+
+      .contact {
+        @include onTablet {
+          margin-bottom: 40px;
+        }
+
+        .contact-link {
+          line-height: 150%;
+          color: white;
+          border-bottom: 1px solid transparent;
+          transition: all 0.5s;
+          text-decoration: none;
+        }
+
+        .contact-link:hover {
+          color: #887676;
+          border-bottom: 1px solid #ffffff;;
+        }
+
+        .contact-type {
+          line-height: 150%;
+          padding-bottom: 5px;
+          font-size: 24px;
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+}
