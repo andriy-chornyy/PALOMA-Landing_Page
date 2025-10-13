@@ -19,7 +19,6 @@
 @import "difference";
 @import "footer.scss";
 
-/* #region page */
 input,
 textarea {
   transition: background-color 5000s ease-in-out;
@@ -39,8 +38,9 @@ textarea {
 }
 
 .page:has(.menu:target) {
-  overflow: hidden; /* not to scroll the page */
+  overflow: hidden;
 }
+
 .main {
   margin: 0 auto;
   max-width: 1440px;
@@ -50,23 +50,13 @@ a {
   text-decoration: none;
 }
 
-
-/* #endregion */
-
-
-/* #region slider*/
-
 .slider-container {
-  //width: 720px;
-  //margin: auto;
-  // background: white;
   position: relative;
 }
 
 .slider-container .fade {
   animation-name: fade;
   animation-duration: 0.5s;
-
 }
 
 @keyframes fade {
@@ -74,14 +64,11 @@ a {
   to {opacity: 1}
 }
 
-
-
 .slider-container .slides .slider-numbers {
   position: absolute;
 
   width: 100%;
   line-height: 1.3;
-  // text-align: center;
   color: #FFF;
 
   background-color: rgba(0, 0, 0, 0.45);
@@ -111,7 +98,6 @@ a {
 
 .slider-container .slides .slider-numbers1 {
   position: absolute;
-  // padding: 10px;
   width: 100%;
   top: 30%;
   text-align: center;
@@ -178,46 +164,6 @@ a {
   border-radius: 50%;
 }
 
-// .slider-image {
-  // width: auto;
-  // height: 600px;
-  // display: flex;
-  // align-items: center;
-  // justify-self: center;
-  // justify-content: center;
-
-
-  // .cucu {
-  //   max-width: 600px;
-  //   max-height: 600px;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-image: url(/images/main1.jpg);
-
-  //   background-size: cover; /* или contain */
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  // }
-
-  // div {
-  //   width: fit-content;
-
-  //   height: 600px;
-  //   width: 600px;
-
-    // img {
-    //   display: flex;
-    //    background-image: url(/images/main1.jpg);
-
-    //   background-size: cover; /* или contain */
-    //   background-repeat: no-repeat;
-    //   background-position: center center;
-
-    // }
-  // }
-
-// }
-
 .slider-image img {
   width: 100%;
   height: 600px;
@@ -230,14 +176,8 @@ a {
 
 }
 
-
-/* #endregion */
-
-
-// second slider
-
 #slider-container {
-  display: none; /* Приховати контейнер слайдера за замовчуванням */
+  display: none;
 }
 
 .container {
@@ -246,7 +186,6 @@ a {
   height: auto;
   margin: auto;
   padding-top: 3vh;
-  //border: #fff solid 3px;
   background: rgb(255, 255, 255);
   background: black;
   border-bottom: 2px solid #fff;
@@ -275,7 +214,6 @@ a {
   gap: 5px;
 }
 
-/* Slide buttons */
 .slide-buttons{
   position: absolute;
   left: 2%;
@@ -287,7 +225,6 @@ a {
 .slide-buttons button{
   width: 20px;
   height: 50px;
-  //background: none;
   color: rgba(255, 255, 255, 0.452);
   color: #fff;
   border: none;
@@ -309,8 +246,6 @@ a {
   margin-left: 90%;
 }
 
-
-/* Fade in animation for the carousel */
 @keyframes fadeIn {
   100%{
     opacity: 1;
@@ -361,8 +296,6 @@ a {
     clip-path: circle(100px at 85% -25%);
     -webkit-clip-path: circle(100px at 85% -25%);
     transition: all 0.5s ease-out;
-
-    /* Non clickable when closed */
     pointer-events: none;
   }
 
@@ -387,7 +320,6 @@ a {
   }
 
   .nav-links li:nth-child(1){
-    /* property, time, timing, delay */
     transition: all 0.5s ease-in 0.1s;
   }
   .nav-links li:nth-child(2){
@@ -400,7 +332,6 @@ a {
     opacity: 1;
   }
 
-
   #left-button{
     margin-left: 4%;
   }
@@ -412,9 +343,6 @@ a {
 
 .slider-button {
   position: absolute;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   height: 50px;
   width: 240px;
   top: 86%;
@@ -424,7 +352,6 @@ a {
   background: transparent;
   font-size: 15px;
   font-family: 'Inter', sans-serif;
-  /* background: gray; */
   opacity: 0.7;
   font-weight: 700;
   cursor: pointer;
@@ -443,35 +370,32 @@ a {
   background-color: gray;
 }
 
-// scrollbar styles
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: white;
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: grey;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
