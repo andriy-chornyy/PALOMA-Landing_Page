@@ -2,7 +2,6 @@
 
 import telegramImage from './images/telegram.png';
 import instagramImage from './images/instagram.png';
-import viberImage from './images/viber.png';
 import closeImage from './images/close.png';
 
 import BS0 from './images/main1.jpg';
