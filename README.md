@@ -1,5 +1,5 @@
 <h1 align="center">
-  🏡 PALOMA — Landing Page 🏡�
+  🏡 PALOMA — Landing Page 🏡
 </h1>
 
 ## 📄 About the project
